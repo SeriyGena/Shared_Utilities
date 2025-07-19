@@ -1,7 +1,7 @@
 # Ignore everything
 *
 
-# But don't ignore these files
+# But don't ignore these files and directories
 !.gitignore
 !/.copilot/
 !/.vscode/
@@ -12,6 +12,8 @@
 !/public/
 !/resources/
 !/scripts/
+!scripts/*.ps1
+!scripts/*.md
 !pyproject.toml
 !README.md
 !LICENSE
