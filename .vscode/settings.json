@@ -18,8 +18,8 @@
         "**/.DS_Store": true,
         "**/Thumbs.db": true,
         "**/__pycache__": true,
-        "**/.pytest_cache": true,
-        "**/.venv": true
+        "**/.pytest_cache": true
+        //"**/.venv": true
     },
     "search.exclude": {
         "**/node_modules": true,
@@ -83,7 +83,7 @@
         "editor.defaultFormatter": "charliermarsh.ruff",
         "editor.formatOnSave": true,
         "editor.codeActionsOnSave": {
-            "source.fixAll.ruff": true
+            "source.fixAll.ruff": "explicit"
         }
     }
 }
