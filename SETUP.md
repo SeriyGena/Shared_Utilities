@@ -2,7 +2,19 @@
 
 ## Prerequisites (First-time setup)
 
-### 1. Install Poetry (if not already installed)
+### 1. Install Python 3.11+
+This project requires Python 3.11 or higher for compatibility with modern packages.
+
+**Check your Python version:**
+```powershell
+python --version
+```
+
+**Download Python 3.11+:**
+- Visit: https://www.python.org/downloads/
+- Download and install Python 3.11 or newer
+
+### 2. Install Poetry (if not already installed)
 
 Poetry is a dependency management tool for Python. Install it once per machine:
 
@@ -20,8 +32,8 @@ pip install poetry
 poetry --version
 ```
 
-### 2. Install Python 3.8+
-Ensure you have Python 3.8 or higher installed on your system.
+### 3. Install Python 3.11+
+Ensure you have Python 3.11 or higher installed on your system.
 
 ## Project Setup
 

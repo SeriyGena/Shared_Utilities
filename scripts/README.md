@@ -28,7 +28,15 @@
 
 This directory contains PowerShell scripts to manage your Poetry-based Python project. All scripts should be run from the project root directory.
 
+**Python Requirements: 3.11+** - This template is optimized for Python 3.11 and above to ensure compatibility with modern packages and tools.
+
 ## Prerequisites
+
+### Python 3.11+ Installation (Required)
+Ensure you have Python 3.11 or higher installed on your system:
+```powershell
+python --version  # Should show 3.11 or higher
+```
 
 ### Poetry Installation (Required)
 
@@ -95,6 +103,16 @@ Add `%APPDATA%\Python\Scripts` to your system PATH environment variable.
 `.\scripts\update_poetry_lock.ps1`
 
 ---
+
+### 4. `sync_environment_to_pyproject.ps1`
+**Purpose**: Add currently installed packages to pyproject.toml
+**When to use**:
+- Converting from pip-based project to Poetry
+- You've manually installed packages and want to add them to pyproject.toml
+- Capturing current environment state in project configuration
+
+**Command**: `.\scripts\sync_environment_to_pyproject.ps1`
+**Warning**: This modifies your pyproject.toml file
 
 ## Initial Project Setup (First Time)
 
