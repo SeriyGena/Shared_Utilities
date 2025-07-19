@@ -8,3 +8,11 @@
 !/docs/
 !/src/
 !/test/
+!/data/
+!/public/
+!/resources/
+!/scripts/
+!pyproject.toml
+!README.md
+!LICENSE
+
