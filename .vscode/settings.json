@@ -18,8 +18,8 @@
         "**/.DS_Store": true,
         "**/Thumbs.db": true,
         "**/__pycache__": true,
-        "**/.pytest_cache": true
-        //"**/.venv": true
+        "**/.pytest_cache": true,
+        "**/.venv": false
     },
     "search.exclude": {
         "**/node_modules": true,
