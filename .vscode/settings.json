@@ -5,7 +5,11 @@
     "workbench.colorTheme": "Atom One Dark",
     "workbench.iconTheme": "material-icon-theme",
     "explorer.confirmDelete": false,
-    // "security.workspace.trust.untrustedFiles": "open", should be on global seeting lelev Preference: Open Settings (JSON)
+    "security.allowedUNCHosts": [
+        "isSHFS.intel.com"
+    ],
+    "terminal.integrated.enableMultiLinePasteWarning": "never",
+    "files.autoSave": "afterDelay", // Автосохранение, включено
     "files.exclude": {
         "**/.git": true,
         "**/.svn": true,
@@ -25,38 +29,32 @@
         "**/.pytest_cache": true,
         "**/.venv": true
     },
-
+    "editor.lineNumbers": "on", // Добавлена нумерация строк для редактора
 
     //================================================================
     // Git & GitHub Copilot Settings
     //================================================================
-     "github.copilot.enable": {
-        // Enables Copilot for all languages by default.
+    "github.copilot.enable": {
         "*": true,
-
-        "markdown": true, // Enables Copilot for Markdown files, useful for documentation.
-        "json":true, // Enables Copilot for JSON files, which can be helpful for configuration files.
-        "yaml": true, // Enables Copilot for YAML files, often used in configuration and deployment scripts.
-        "jsonc": true, // Enables Copilot for JSONC files, which are JSON files with comments.
-
-        // Explicitly ensures Copilot is active for Python files.
-        // This is technically redundant if "*": true is set, but it's good for clarity.
+        "markdown": true,
+        "json": true,
+        "yaml": true,
+        "jsonc": true,
         "python": true,
-
-        // Disables Copilot suggestions in plain text files, which can be
-        // distracting and are generally not useful.
         "plaintext": false
     },
     "git.autofetch": true,
     "git.openRepositoryInParentFolders": "always",
-    "github.copilot.nextEditSuggestions.enabled": true,// Enables Copilot's next edit suggestions feature
-    "editor.inlineSuggest.edits.showCollapsed": true,// Show inline suggestions in a collapsed state by default
-    "editor.inlineSuggest.edits.allowCodeShifting": "always",// Allow inline suggestions to shift code when they are applied
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "editor.inlineSuggest.edits.showCollapsed": true,
+    "editor.inlineSuggest.edits.allowCodeShifting": "always",
     "editor.inlineSuggest.edits.renderSideBySide": "auto",
 
     //================================================================
     // Python & Jupyter Settings
     //================================================================
+    "python.defaultInterpreterPath": "${workspaceFolder}/.venv/Scripts/python.exe", // Добавлена настройка пути к окружению
+    "python.terminal.activateEnvironment": true, // Добавлена настройка активации окружения в терминале
     "python.createEnvironment.trigger": "off",
     "python.testing.pytestArgs": [
         "."
@@ -76,23 +74,16 @@
     //================================================================
     // Language-Specific Settings for Python
     //================================================================
-    "python.analysis.languageServerMode":"default",
+    "python.analysis.languageServerMode": "default",
     "python.analysis.typeCheckingMode": "basic",
-    // ... your other settings
     "python.analysis.diagnosticSeverityOverrides": {
-        "reportMissingTypeStubs": "none" // or "warning"
+        "reportMissingTypeStubs": "none"
     },
-
     "[python]": {
-        // 1. Set Ruff as the default formatter.
         "editor.defaultFormatter": "charliermarsh.ruff",
-
-        // 2. Enable format-on-save to auto-format Python files with Ruff.
         "editor.formatOnSave": true,
-
-        // 3. Enable auto-fix for all safe linting issues on save (e.g., organize imports).
-        // "editor.codeActionsOnSave": {
-        //     "source.fixAll.ruff": true
-        // },   
+        "editor.codeActionsOnSave": {
+            "source.fixAll.ruff": true
+        }
     }
 }
