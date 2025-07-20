@@ -1,46 +1,85 @@
-# What users do per project at the first time
+# 🚀 Template Setup Scripts
 
-1. **Clone template**
-2. **Run** `update_poetry_from_pyproject.ps1`
-3. **Start coding!**
+## 📋 **Quick Start - Template to Project Conversion**
+
+After cloning this template, follow these **4 simple steps** to convert it to your project:
+
+### **Step 1: Convert Template to Project** ⚙️
+```powershell
+.\scripts\change_from_template_to_project.ps1 -ProjectName "your_project_name"
+```
+- **Purpose**: Converts template placeholders to your project name
+- **What it does**: Updates all files with your project-specific information
+- **Required**: Must be run first before any other setup
+
+### **Step 2: Install Default Dependencies** 📦
+```powershell
+.\scripts\install_dependencies.ps1
+```
+- **Purpose**: Installs all dependencies from pyproject.toml
+- **What it does**: Sets up the complete development environment
+- **Includes**: Core packages + development tools (black, flake8, mypy, pytest)
+
+### **Step 3: Check Environment Sync** 🔍
+```powershell
+.\scripts\sync_environment.ps1
+```
+- **Purpose**: Compares your environment with pyproject.toml
+- **What it does**: Identifies any additional packages that should be added
+- **Interactive**: Prompts to add missing packages to pyproject.toml
+
+### **Step 4: Install Any New Dependencies** 🔄
+```powershell
+.\scripts\install_dependencies.ps1
+```
+- **Purpose**: Installs any newly added dependencies
+- **What it does**: Ensures your environment matches the updated pyproject.toml
+- **Complete**: Your project is now ready for development!
 
 ---
 
-## 🎯 Summary
+## 🎯 **Complete Workflow Summary**
 
-### What's included in the template
+```powershell
+# 1. Clone the template
+git clone <template-repo> my-new-project
+cd my-new-project
 
-- `pyproject.toml` with basic dev dependencies
-- All Poetry management scripts
-- `SETUP.md` with Poetry installation instructions
-- Updated scripts `README.md` with prerequisites
+# 2. Convert to your project
+.\scripts\change_from_template_to_project.ps1 -ProjectName "my_project"
 
-### What users need to do once per machine
+# 3. Install default dependencies  
+.\scripts\install_dependencies.ps1
 
-- **Install Poetry globally:**  
-    `pip install poetry` or use the official installer
-- **Verify:**  
-    `poetry --version`
+# 4. Check for additional dependencies
+.\scripts\sync_environment.ps1
+
+# 5. Install any new dependencies (if Step 4 added packages)
+.\scripts\install_dependencies.ps1
+
+# 6. Start coding!
+code .
+```
+
+**🎉 You now have a fully configured Python development environment!**
 
 ---
 
-# Poetry Scripts Documentation
+## 📚 **Script Documentation**
 
-This directory contains PowerShell scripts to manage your Poetry-based Python project. All scripts should be run from the project root directory.
+This directory contains PowerShell scripts for managing your Python project. All scripts should be run from the project root directory.
 
-**Python Requirements: 3.11+** - This template is optimized for Python 3.11 and above to ensure compatibility with modern packages and tools.
+**Python Requirements: 3.11+** - This template is optimized for Python 3.11 and above.
 
 ## Prerequisites
 
 ### Python 3.11+ Installation (Required)
-Ensure you have Python 3.11 or higher installed on your system:
 ```powershell
 python --version  # Should show 3.11 or higher
 ```
 
 ### Poetry Installation (Required)
-
-Poetry must be installed on your system before using these scripts. Install it once per machine:
+Install Poetry once per machine:
 
 **Windows (PowerShell):**
 ```powershell
@@ -59,68 +98,162 @@ pipx install poetry
 poetry --version
 ```
 
-**Add Poetry to PATH** (if using official installer):  
-Add `%APPDATA%\Python\Scripts` to your system PATH environment variable.
-
 ---
 
-## Available Scripts
+## 🔧 **Available Scripts**
 
-### 1. `update_poetry_from_pyproject.ps1`
-**Purpose:** Install/sync dependencies from pyproject.toml  
+### 1. `change_from_template_to_project.ps1` 🎯
+**Purpose:** Convert template placeholders to your project  
 **When to use:**
-- Setting up the project for the first time
-- Syncing your environment after pulling changes
-- Ensuring your environment matches project requirements
+- **FIRST STEP** after cloning the template
+- One-time conversion from template to personalized project
 
 **Command:**  
-`.\scripts\update_poetry_from_pyproject.ps1`
+```powershell
+.\scripts\change_from_template_to_project.ps1 -ProjectName "your_project"
+```
+
+**What it does:**
+- Replaces `TEMPLATE_PROJECT` with your project name
+- Updates `template_project` with snake_case version
+- Converts `"Your Name"` and email placeholders
+- Creates VS Code workspace file
 
 ---
 
-### 2. `update_dependencies_to_latest.ps1`
-**Purpose:** Update all dependencies to their latest compatible versions  
+### 2. `install_dependencies.ps1` 📦
+**Purpose:** Install dependencies from pyproject.toml  
 **When to use:**
-- Monthly maintenance to keep dependencies current
-- Before major releases for latest security updates
-- When you want the newest versions within constraints
+- After template conversion (Step 2)
+- After sync_environment adds new packages (Step 4)
+- Setting up development environment
+- After pulling changes with new dependencies
 
 **Command:**  
-`.\scripts\update_dependencies_to_latest.ps1`  
-**Warning:** May introduce breaking changes - test thoroughly after running
+```powershell
+.\scripts\install_dependencies.ps1
+```
+
+**Features:**
+- Smart dependency analysis before installation
+- Supports both Poetry and pip workflows
+- Shows what will be installed before proceeding
+- Handles dev dependencies separately
 
 ---
 
-### 3. `update_poetry_lock.ps1`
-**Purpose:** Update poetry.lock file without changing dependency versions  
+### 3. `sync_environment.ps1` 🔍
+**Purpose:** Compare environment with pyproject.toml and add missing packages  
 **When to use:**
-- Before committing to ensure reproducible builds
-- After manually editing pyproject.toml
-- When poetry.lock is out of sync with pyproject.toml
-- For deployment preparation
+- After installing template dependencies (Step 3)
+- When you've manually installed packages
+- Converting from pip-based project
+- Periodic environment auditing
 
 **Command:**  
-`.\scripts\update_poetry_lock.ps1`
+```powershell
+.\scripts\sync_environment.ps1
+```
+
+**What it does:**
+- Analyzes currently installed packages
+- Compares with pyproject.toml dependencies
+- **Interactive**: Prompts to add missing packages
+- Updates pyproject.toml with new dependencies
+- **Note**: Only updates file, doesn't install packages
 
 ---
 
-### 4. `sync_environment_to_pyproject.ps1`
-**Purpose**: Add currently installed packages to pyproject.toml
-**When to use**:
-- Converting from pip-based project to Poetry
-- You've manually installed packages and want to add them to pyproject.toml
-- Capturing current environment state in project configuration
+## 🔄 **Daily Development Workflow**
 
-**Command**: `.\scripts\sync_environment_to_pyproject.ps1`
-**Warning**: This modifies your pyproject.toml file
+### Adding New Dependencies
+```powershell
+# Method 1: Using Poetry (recommended)
+poetry add package-name
 
-## Initial Project Setup (First Time)
+# Method 2: Manual install + sync
+pip install package-name
+.\scripts\sync_environment.ps1  # Add to pyproject.toml
+```
 
-1. **After cloning template:** Run `.\scripts\update_poetry_from_pyproject.ps1` to install dependencies
-2. **Add your dependencies:** Use `poetry add package-name` commands
-3. **Lock dependencies:** Run `.\scripts\update_poetry_lock.ps1` to create/update lock file
+### Updating Dependencies
+```powershell
+# Update specific package
+poetry add package-name@latest
+
+# Update all packages (use with caution)
+poetry update
+```
+
+### Environment Maintenance
+```powershell
+# Ensure environment matches pyproject.toml
+.\scripts\install_dependencies.ps1
+
+# Check for missing packages
+.\scripts\sync_environment.ps1
+```
 
 ---
+
+## 🚨 **Important Notes**
+
+### **Script Execution Order Matters**
+1. **First**: `change_from_template_to_project.ps1` (one-time only)
+2. **Then**: `install_dependencies.ps1` 
+3. **Check**: `sync_environment.ps1`
+4. **Finally**: `install_dependencies.ps1` (if Step 3 added packages)
+
+### **Separation of Concerns**
+- **`sync_environment.ps1`**: Only updates pyproject.toml file
+- **`install_dependencies.ps1`**: Only installs packages
+- **Clean workflow**: Update file first, then install
+
+### **Cross-Platform Compatibility**
+- Scripts use ASCII-only output for PowerShell compatibility
+- UTF-8 encoding without BOM for Poetry compatibility
+- Proper error handling and validation
+
+---
+
+## 🔧 **Troubleshooting**
+
+### Poetry not found
+```powershell
+# Check if Poetry is installed
+poetry --version
+
+# If not found, install Poetry
+(Invoke-WebRequest -Uri https://install.python-poetry.org -UseBasicParsing).Content | python -
+```
+
+### Permission errors
+```powershell
+# Run PowerShell as Administrator
+# Or set execution policy
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+
+### Python version issues
+```powershell
+# Check Python version (must be 3.11+)
+python --version
+
+# Use specific Python version
+poetry env use python3.11
+```
+
+---
+
+## 📝 **Template Benefits**
+
+✅ **One-command setup** - Automated template conversion  
+✅ **Smart dependency management** - Intelligent package handling  
+✅ **Professional configuration** - VS Code workspace included  
+✅ **Cross-platform compatible** - Works on Windows, macOS, Linux  
+✅ **Development ready** - Testing, linting, formatting pre-configured  
+
+**Result: Professional Python development environment in under 5 minutes!** 🚀
 
 ## Daily Workflow
 

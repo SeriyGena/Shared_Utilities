@@ -1,1 +1,18 @@
-
+{
+  "recommendations": [
+    "ms-python.python",
+    "ms-python.black-formatter", 
+    "ms-python.flake8",
+    "ms-python.mypy-type-checker",
+    "ms-toolsai.jupyter",
+    "ms-vscode.powershell",
+    "GitHub.copilot",
+    "ms-vscode.vscode-json",
+    "redhat.vscode-yaml",
+    "mhutchie.git-graph",
+    "yzhang.markdown-all-in-one"
+  ],
+  "unwantedRecommendations": [
+    "ms-python.pylint"
+  ]
+}

@@ -9,7 +9,7 @@
         "isSHFS.intel.com"
     ],
     "terminal.integrated.enableMultiLinePasteWarning": "never",
-    "files.autoSave": "afterDelay", // Автосохранение, включено
+    "files.autoSave": "afterDelay", // Auto-save enabled
     "files.exclude": {
         "**/.git": true,
         "**/.svn": true,
@@ -29,7 +29,7 @@
         "**/.pytest_cache": true,
         "**/.venv": true
     },
-    "editor.lineNumbers": "on", // Добавлена нумерация строк для редактора
+    "editor.lineNumbers": "on", // Line numbers enabled for editor
 
     //================================================================
     // Git & GitHub Copilot Settings
@@ -53,8 +53,8 @@
     //================================================================
     // Python & Jupyter Settings
     //================================================================
-    "python.defaultInterpreterPath": "${workspaceFolder}/.venv/Scripts/python.exe", // Добавлена настройка пути к окружению
-    "python.terminal.activateEnvironment": true, // Добавлена настройка активации окружения в терминале
+    "python.defaultInterpreterPath": "${workspaceFolder}/.venv/Scripts/python.exe", // Python environment path setting
+    "python.terminal.activateEnvironment": true, // Environment activation in terminal
     "python.createEnvironment.trigger": "off",
     "python.testing.pytestArgs": [
         "."

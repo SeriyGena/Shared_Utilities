@@ -1,0 +1,2 @@
+# Generate this list in shell command line with: code --list-extensions > vscode-extensions.txt
+# Install all extensions from this list, in shell command line: Get-Content vscode-extensions.txt | Where-Object { $_ -notmatch '^#' } | ForEach-Object { code --install-extension $_ }
