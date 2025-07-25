@@ -29,3 +29,11 @@ Do not use any non-ASCII characters in the code files, including shell scripts, 
 Always ensure that the code is compatible with the latest stable version of the language or framework being used
 For documentation, non ASCII characters can be used, but always ensure they are properly encoded in UTF-8.
 Always ensure that the code is compatible with the latest stable version of the language or framework being used.
+Do not create update by your own any documentation files, such as README.md or CHANGELOG.md, unless explicitly requested. Instead, focus on generating code that is self-documenting through comments and docstrings.
+When there is request to fix and review comments, that should not be touch the code lines it self.
+When you requested to generate of fix function allway propose to extranc the fuction that makes sens to be genercial and reusable.
+When generating code that interacts with external systems (e.g., databases, APIs), ensure to include error handling and validation for the external interactions.
+when you requestion to generate py file from the ipynb file, should be ensure that the generated py file is executable and does not contain any Jupyter-specific code or comments. Also do not change and optimaze any code when it transfered to release py file.
+When generating code that requires specific imports, ensure to include all necessary imports at the beginning of the file.
+When generating code that requires configuration, ensure to provide a clear and concise way to set up the configuration, such as using environment variables or a configuration file.
+When generating code that requires testing, ensure to include test cases that cover various scenarios and edge cases.
